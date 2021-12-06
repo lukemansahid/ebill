@@ -1,29 +1,21 @@
 <?php 
 require_once("Includes/config.php");
 require_once("Includes/session.php");
-// if ($count===0) {
-//     $err_login="There were some problem";
-// }
-if(isset($_SESSION['logged']))
-{
-    if ($_SESSION['logged'] == true)
-    {
+
+if(isset($_SESSION['logged'])){
+    if ($_SESSION['logged'] == true) {
         if ($_SESSION['account']=="admin") {
                 header("Location:admin/index.php");
-            }
-        elseif ($_SESSION['account']=="user") {
+            } elseif ($_SESSION['account']=="user") {
                 header("Location:user/index.php");
             }
-    }  
-    else  {
-        header("Location:../index.php");
-      }  
+    } else{header("Location:index.php");}
 }
 
 if(isset($_POST['login_submit'])) {
     if(!(isset($_POST['email']))) {
         if(!(isset($_POST['pass']))) {
-            location('index.php');    
+            location('index.php');
         }
     }
 }
@@ -81,13 +73,22 @@ if(isset($_POST['login_submit'])) {
         <div class="darkhearderwrap">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
-<!--                        <h1>Electricity Billing System</h1>-->
-<!--                        <p>This website at the end of its construction will act as a consumer oriented service for users for easy payment of their respective <b>Electricity Bill</b> as well as interact with their providers in case of any queries or grivances.</p>-->
-                    </div>
+                    <div class="col-lg-6 text-center">
+
+                   </div>
                     <!-- /col-lg-6 -->
                     <div class="col-lg-6">
-<!--                        <h1>Sign Up</h1>-->
+                        <?php
+                        if (isset($_GET['login'])){
+                            $checkError = $_GET['login'];
+                            if ($checkError =="wrongpass"){
+                                echo "<span style='color:red;'> Incorrect password!</span>";
+                            }elseif ($checkError =="noUser"){
+                                echo "<span style='color:red;'>User not exist. Please signup!</span>";
+                            }
+                        }
+                        ?>
+<!--                        <h1 style="color:#67b168 ">Sign Up</h1>-->
                         <?php include("signup.php"); ?>
                     </div>
                     <!-- /col-lg-6 -->

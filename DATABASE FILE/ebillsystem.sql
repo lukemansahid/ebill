@@ -12,7 +12,7 @@ CREATE TABLE `admin` (
   `id` int(14) NOT NULL,
   `name` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `pass` varchar(20) NOT NULL
+  `pass` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -20,8 +20,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `pass`) VALUES
-(1, 'Administrator One', 'admin@gmail.com', 'Password@123'),
-(2, 'Administrator Two', 'admin2@gmail.com', 'admin2');
+(1, 'Administrator One', 'vandy@gmail.com', '$2y$10$4qr3Zy9jsjXRLxfrwjRCMOY/cSqVCpOP/Ioxzo61hh07YM2lGx4Yy'),
+(2, 'Administrator Two', 'admin@gmail.com', '$2y$10$4qr3Zy9jsjXRLxfrwjRCMOY/cSqVCpOP/Ioxzo61hh07YM2lGx4Yy');
 
 -- --------------------------------------------------------
 
@@ -146,7 +146,7 @@ CREATE TABLE `user` (
   `name` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `pass` varchar(20) NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -155,17 +155,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `phone`, `pass`, `address`) VALUES
-(1, 'Frederick J Baker\n', 'baker@gmail.com', '7450002145', 'password', '1488 Franklin Street'),
-(2, 'Antonio Dominguez', 'antonio@gmail.com', '7854547855', 'password', '3961 Sycamore Lake Road'),
-(3, 'Etta H Abner', 'etta@gmail.com', '7012569980', 'password', '3255 Ocello Street'),
-(4, 'Jeffrey Wegman', 'wegman@gmail.com', '7012458888', 'password', '2962 Pine Tree Lane'),
-(5, 'Benjamin Sanderson', 'benjamin@gmail.com', '7012565800', 'password', '4830 Bell Street'),
-(6, 'Eric Webb', 'ericw@gmail.com', '7896541000', 'password', '3485 Stewart Street'),
-(7, 'Jonathan Lasalle', 'jonathan@gmail.com', '70145850025', 'password', '3850 Olen Thomas Drive'),
-(8, 'Liam Moore', 'liamoore@gmail.com', '7012545555', 'password', '744 Ralph Street'),
-(9, 'Will Williams', 'williams@gmail.com', '7696969855', 'password', '7855 Allace Avenue'),
-(10, 'Christine Moore', 'moore@gmail.com', '7896500010', 'password', '1458 Bleckstreet'),
-(11, 'Timothy Diaz', 'timothy@gmail.com', '7412580020', 'password', '4840 Oakdale Avenue');
+(1, 'Vandy Kamara', 'vandykamara@gmail.com', '077531883', '$2y$10$PYPgwvhOtGI6y4ak5jhQheFcWFhTQK5QeufiEk/RdDxwarP39VasS', 'Teko Barrack Street');
 
 --
 -- Indexes for dumped tables

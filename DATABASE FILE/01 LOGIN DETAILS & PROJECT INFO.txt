@@ -1,15 +1,13 @@
-**Log on to codeastro.com for more projects!***
+ **Database Name: ebillsystem**
 
-**Database Name: ebillsystem**
-
-**Developed by Lakshmi Narayana**
+**Developed by Vandy and Dauda**
 
 **Recommended PHP Version 5.6 or Newer**
 
 
 **Admin Login Details**
 
-Email   : admin@gmail.com
-Password: Password@123
+Email   :vandy@gmail.com or admin@gmail.com
+Password: admin
 
 
