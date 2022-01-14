@@ -59,7 +59,7 @@
                                         <tbody>
                                         <?php
                                             $id=$_SESSION['aid'];
-                                            $query1 = "SELECT COUNT(user.name) FROM user,bill WHERE user.id=bill.uid AND aid={$id}";
+                                            $query1 = "SELECT COUNT(user.name) FROM user,bill WHERE user.id=bill.uid";
                                             $result1 = mysqli_query($con,$query1);
                                             $row1 = mysqli_fetch_row($result1);
                                             $numrows = $row1[0];
@@ -72,7 +72,7 @@
                                                     <td height="50"><?php echo $row['user'] ?></td>
                                                     <td><?php echo $row['bdate'] ?></td>
                                                     <td><?php echo $row['units'] ?></td>
-                                                    <td><?php echo '$'.$row['amount'] ?></td>
+                                                    <td><?php echo 'Le '.$row['amount'] ?></td>
                                                     <td><?php echo $row['ddate'] ?></td>
                                                     <td><?php if($row['status'] == 'PENDING') { echo'<span class="badge" style="background: red;">'.$row["status"].'</span>'; } else { echo'<span class="badge" style="background: green;">'.$row["status"].'</span>';} ?></td>
                                                 </tr>
@@ -88,29 +88,13 @@
                             <!-- .tab-genereated -->
 
                             <div class="tab-pane fade" id="generate">
-                                <!-- <h4>{User} due bill info goes here and each linked to a transaction form </h4> -->
+<!--                                 <h4>{User} due bill info goes here and each linked to a transaction form </h4>-->
                                 <!-- create a clickable list of USERS leading to a modal form to fill up units -->
                                 
                                     <?php
-                                    $sql = "SELECT curdate1()";
-                                    $result = mysqli_query($con,$sql);
-                                    if($result === FALSE) {
-                                        echo "FAILED";
-                                        die(mysql_error()); 
-                                    }
-                                    $row = mysqli_fetch_row($result);
-                                    // echo $row[0];
-                                    if ($row[0] == 1) {
-                                        include("generate_bill_table.php") ;
-                                    }
-                                    else
-                                    {
-                                        //echo "<div class=\"text-danger text-center\" style=\"padding-top:100px; font-size: 30px;\">";
-                                        //echo " <b><u>BILL TO BE GENERATED ONLY ON THE FIRST OF THE MONTH</u></b>";
-                                        //echo " </div>" ;
-										include("generate_bill_table.php") ;
-                                    }
-                                     
+
+                                    include("generate_bill_table.php") ;
+
                                     ?>
                             </div> 
 

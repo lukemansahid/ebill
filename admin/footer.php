@@ -3,7 +3,7 @@
     <footer class="text-center">
         <div class="footer-below">
             <div class="container">
-                Created by <a href="">BILLING </a> SYSTEM
+                Created by <a href="">Vandy </a> and Dauda
             </div>
         </div>
     </footer>

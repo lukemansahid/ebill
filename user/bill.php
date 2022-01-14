@@ -71,7 +71,7 @@
                                                     <td height="50"><?php echo 'EBS_'.$row['id'] ?></td>
                                                     <td height="50"><?php echo $row['bdate'] ?></td>
                                                     <td><?php echo $row['units'] ?></td>
-                                                    <td><?php echo '$'.$row['amount'] ?></td>
+                                                    <td><?php echo 'Le '.$row['amount'] ?></td>
                                                     <td><?php echo $row['ddate'] ?></td>
                                                     <td><?php echo $row['status'] ?></td>
                                                 </tr>
@@ -127,13 +127,13 @@
                                                     <td><?php echo $row['ddate'] ?></td>
 
                                                     <input type="hidden" name="amount" value=<?php echo $row['amount'] ?> >
-                                                    <td><?php echo '$'.$row['amount'] ?></td>
+                                                    <td><?php echo 'Le '.$row['amount'] ?></td>
 
                                                     <!-- <input type="hidden" name="" value=<?php echo $row[''] ?> > -->
-                                                    <td><?php echo '$'.$row['dues'] ?></td>
+                                                    <td><?php echo 'Le '.$row['dues'] ?></td>
 
                                                     <input type="hidden" name="payable" value=<?php echo $row['payable'] ?> >
-                                                    <td><?php echo '$'.$row['payable'] ?></td>
+                                                    <td><?php echo 'Le '.$row['payable'] ?></td>
 
                                                     <td>
                                                     <button class="btn btn-success form-control" data-toggle="modal"  data-target="#PAY">PAY</button>

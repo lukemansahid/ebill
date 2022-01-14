@@ -23,6 +23,7 @@ if(isset($_POST["reg_submit"])) {
         $password = test_input($_POST["inputPassword"]);
         $confpassword = test_input($_POST["confirmPassword"]);
         $address = test_input($_POST["address"]);
+        $role = 2;
 
         // NAME VALIDATION
         if (empty($_POST["name"])) {
@@ -119,14 +120,14 @@ if(isset($_POST["reg_submit"])) {
                     header("Location:index.php?signup=userExist&name=$name&email=$email&phone=$contactNo&address=$address");
                     exit();
                 }else{
-                    $sql = "INSERT INTO user (`name`,`email`,`phone`,`pass`,`address`) VALUES(?,?,?,?,?)";
+                    $sql = "INSERT INTO user (`name`,`email`,`phone`,`pass`,`address`,`user_role`) VALUES(?,?,?,?,?,?)";
                     $stmt = mysqli_stmt_init($con);
                     if (!mysqli_stmt_prepare($stmt,$sql)){
                         header("Location:index.php?signup=sqlerror");
                         exit();
                     }else{
                         $hasPwd = password_hash($password,PASSWORD_DEFAULT);
-                        mysqli_stmt_bind_param($stmt,"sssss",$name,$email,$contactNo,$hasPwd,$address);
+                        mysqli_stmt_bind_param($stmt,"ssssss",$name,$email,$contactNo,$hasPwd,$address,$role);
                         mysqli_stmt_execute($stmt);
                         header("Location:index.php?signup=success");
                         exit();

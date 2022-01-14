@@ -7,7 +7,10 @@
 
 **Admin Login Details**
 
-Email   :vandy@gmail.com or admin@gmail.com
-Password: admin
+Email   :vandy@gmail.com
+Password: vandy
 
 
+**User Login Details**
+Email   :dauda@gmail.com
+Password: dauda

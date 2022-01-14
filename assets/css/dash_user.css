@@ -36,7 +36,7 @@ h6 {
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #000;
+    background: rgba(61, 85, 94, 0.99);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -144,6 +144,10 @@ ul.alert-dropdown {
     background-color: #101010;
 }
 
+.currency{
+    font-size: xx-large;
+    font-weight: bolder
+}
 
 @media(min-width:768px) {
     #wrapper {

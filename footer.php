@@ -1,4 +1,4 @@
 <div class="container">
 <hr>
-<p class="centered">Created by <a href=""><b>BILLING</b></a>  <b>eletricity billing</b></p>
+<p class="centered">Created by <a href=""><b>Vandy</b></a>  <b>and Dauda</b></p>
 </div>

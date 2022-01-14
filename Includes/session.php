@@ -28,12 +28,20 @@
                     $passCheck = password_verify($password,$row['pass']);
                     if($passCheck == true){
                        // session_start();
-                        $_SESSION['user'] = $row['name'];
                         $_SESSION['logged']=true;
-                        $_SESSION['uid']=$row['id'];
-                        $_SESSION['email'] =$row['email'];
-                        $_SESSION['account']="user";
-                        header("Location:user/index.php");
+                        $_SESSION['user'] = $row['name'];
+                        $_SESSION['email'] = $row['email'];
+
+                        if($row['user_role'] ==1){
+                            $_SESSION['aid']=$row['id'];
+                            $_SESSION['account']="admin";
+                            header("Location:admin/index.php");
+                        }elseif($row['user_role'] ==2){
+                            $_SESSION['uid']=$row['id'];
+                            $_SESSION['account']="user";
+                            header("Location:user/index.php");
+                        }
+
                     }else{
                         header("Location:index.php?login=wrongpass");
                         exit();
@@ -44,33 +52,6 @@
                     exit();
                 }
 
-            }else{
-                // admin login
-                $sql = "SELECT * FROM admin WHERE email = ?";
-                $stmt = mysqli_stmt_init($con);
-                if (mysqli_stmt_prepare($stmt,$sql)){
-                    mysqli_stmt_bind_param($stmt,"s",$user);
-                    mysqli_stmt_execute($stmt);
-                    $result = mysqli_stmt_get_result($stmt);
-                    if ($row = mysqli_fetch_assoc($result)){
-                    $passCheck = password_verify($password,$row['pass']);
-                        if($passCheck == true){
-                            // session_start();
-                           $_SESSION['logged']=true;
-                           $_SESSION['email'] = $row['email'];
-                           $_SESSION['aid']=$row['id'];
-                           $_SESSION['account']="admin";
-                           header("Location:admin/index.php");
-                        }else{
-                            header("Location:index.php?login=wrongpass");
-                            exit();
-                        }
-
-                    }else{
-                        header("Location:index.php?login=noUser");
-                         exit();
-                    }
-                }
             }
 
   }

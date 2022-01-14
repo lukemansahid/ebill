@@ -9,8 +9,8 @@
     
     if(isset($_POST["complaint"]) && !empty($_POST["complaint"]))
     {
-        $query  = "INSERT INTO complaint(uid,aid,complaint,status)";
-        $query .= " VALUES ({$id},{$aid},'{$comp}','NOT PROCESSED')";
+        $query  = "INSERT INTO complaint(uid,complaint,status)";
+        $query .= " VALUES ({$id},'{$comp}','NOT PROCESSED')";
         mysqli_query($con,$query);  
     }
     

@@ -6,7 +6,7 @@
         $query  = "SELECT user.name AS user, bill.bdate AS bdate , bill.units AS units , bill.amount AS amount , bill.id as bid ";
         $query .= ", bill.ddate AS ddate, bill.status AS status ";
         $query .= " FROM user , bill ";
-        $query .= " WHERE user.id=bill.uid AND aid={$id} ";
+        $query .= " WHERE user.id=bill.uid ";
         $query .= " ORDER BY bill.id DESC ";
         $query .= "LIMIT {$offset}, {$rowsperpage} ";
 
@@ -62,8 +62,8 @@
     function retrieve_admin_stats($id)
     {
         global $con;
-        $query1  = " SELECT count(id) AS unprocessed_bills FROM bill  WHERE status = 'PENDING'  AND aid = {$id} ";
-        $query2  = " SELECT count(id) AS generated_bills FROM bill  WHERE aid = {$id} " ;
+        $query1  = " SELECT count(id) AS unprocessed_bills FROM bill  WHERE status = 'PENDING' ";
+        $query2  = " SELECT count(id) AS generated_bills FROM bill " ;
         $query3  = " SELECT count(id) AS unprocessed_complaints from complaint where status='NOT PROCESSED' ";
         // echo $query;
         
@@ -95,14 +95,14 @@
         //query for late
         $query1  = "SELECT COUNT(*) FROM bill , transaction ";
         $query1 .= "WHERE curdate() > bill.ddate AND curdate() < adddate(bill.ddate , INTERVAL 25 DAY ) ";
-        $query1 .= "AND bill.aid={$id} AND bill.status='PENDING' ";
+        $query1 .= " AND bill.status='PENDING' ";
         $query1 .= "AND bill.amount = transaction.payable AND bill.id=transaction.bid ";
 
         //query for defaulting 
         //remove user and all relating data
         $query2  = "SELECT COUNT(*) FROM bill  ";
         $query2 .= "WHERE curdate() > adddate(bill.ddate , INTERVAL 25 DAY ) ";
-        $query2 .= "AND bill.aid={$id} AND bill.status='PENDING' ";
+        $query2 .= " AND bill.status='PENDING' ";
 
 
         $result1 = mysqli_query($con,$query1);

@@ -81,8 +81,6 @@
                                         <form class="form-horizontal new_complaint"  role="form"  action="sub_complaint.php" method="post">
                                             <!-- Textarea -->
                                             <div class="row form-group complaint_textarea">
-                                                <!-- <label class="control-label" for="complaint">Complaint</label> -->
-                                                <!-- <textarea class="form-control" id="complaint" name="complaint" placeholder="Complaint Goes here"></textarea> -->
                                                 <select  class="form-control" id="complaint" name="complaint" placeholder="select your grievance">
                                                     <!-- <option value="">Select your grivance</option> -->
                                                     <option value="" disabled selected>Select your option</option>

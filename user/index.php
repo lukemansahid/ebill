@@ -62,7 +62,7 @@
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-xs-3">
-                                                <i class="fa fa-dollar fa-3x"></i>
+                                                <span class="currency">Le</span>
                                             </div>
                                             <div class="col-md-9 text-right">
                                                 <div class="huge"><b></b><?php echo $row2[0]; ?></div>
@@ -79,7 +79,7 @@
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-xs-3">
-                                                <i class="fa fa-dollar fa-3x"></i>
+                                                <span class="currency">Le</span>
                                             </div>
                                             <div class="col-md-9 text-right">
                                                 <div class="huge"><b></b><?php echo $row1[0]; ?></div>

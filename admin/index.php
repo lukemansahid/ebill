@@ -91,7 +91,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-spinner fa-3x"></i>
+                                        <span class="currency">Le</span>
                                     </div>
                                     <div class="col-md-9 text-right">
                                         <div class="huge"><b></b><?php include('pendingcount.php'); ?></div>
@@ -115,7 +115,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-dollar fa-3x"></i>
+                                        <span class="currency">Le</span>
                                     </div>
                                     <div class="col-md-9 text-right">
                                         <div class="huge"><b></b><?php include('billamtcount.php'); ?></div>
@@ -126,7 +126,7 @@
                             <a href="#" data-toggle="modal" data-target="#defaulting00">
                                 <div class="panel-footer">
                                     <span class="pull-left"><b>BILLS AMOUNT</b></span>
-                                    <span class="pull-right"><i class="fa fa-dollar fa-2x"></i></span>
+<!--                                    <span class="pull-right"><i class="fa fa-dollar fa-2x"></i></span>-->
                                     <div class="clearfix"></div>
                                 </div>
                             </a>

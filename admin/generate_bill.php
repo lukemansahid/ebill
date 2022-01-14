@@ -30,22 +30,15 @@
     if (isset($_POST['generate_bill'])) {
         if(isset($_POST["units"]) && !empty($_POST["units"]))
         {
-// CONVERTING UNITS TO AMOUNT
-            $query1 = "call unitstoamount({$units} , @x)";
-            $result1 = mysqli_query($con,$query1);  
-
+              $totalAmount =  $units + 20;
 // INSERTING VALUES INTO BILL
-            $query  = " INSERT INTO bill (aid , uid , units , amount , status , bdate , ddate )";
-            $query .= " VALUES ( {$aid} , {$uid} , {$units} , @x , 'PENDING' , '{$bdate}' , '{$ddate}' )";
+            $query  = " INSERT INTO bill (uid , units , amount , status , bdate , ddate )";
+            $query .= " VALUES ( {$uid} , {$units} , {$totalAmount} , 'PENDING' , '{$bdate}' , '{$ddate}' )";
             $result2 = mysqli_query($con,$query);  
-            if (!mysqli_query($con,$query1))
-            {
-                die('Error: ' . mysqli_error($con));
-            }
 
 // INSERTING VALUES INTO TRANSACTION            
 
-            $query2 = "SELECT id , amount FROM bill WHERE aid={$aid} AND uid={$uid} AND units={$units} ";
+            $query2 = "SELECT id , amount FROM bill WHERE   uid={$uid} AND units={$units} ";
             $query2 .= "AND status='PENDING'  AND bdate='{$bdate}' AND ddate='{$ddate}' ";
 
             $result3 =mysqli_query($con,$query2);
@@ -56,7 +49,7 @@
 
             $row = mysqli_fetch_row($result3);
 
-            $bid = $row[0];$amount=$row[1];
+            $bid = $row[0]; $amount=$row[1];
             insert_into_transaction($bid,$amount);
             
         }  

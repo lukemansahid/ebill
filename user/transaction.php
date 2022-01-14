@@ -33,11 +33,7 @@
                           <li>Transaction</li>
                           <li class="active">History</li>
                         </ol>
-                        <!-- <h4>Transaction History</h4> -->
-                       <!--  <ul class="nav nav-pills nav-justified">
-                            <li class="active"><a href="#history" data-toggle="pill">HISTORY</a>
-                            </li>
-                        </ul> -->
+
                         <div class="table-responsive">
                             <table class="table table-hover table-striped table-bordered table-condensed">
                                 <thead>
@@ -71,9 +67,9 @@
                                             </td>
                                             <!-- <?php echo $row['id'] ?></td> -->
                                             <td height="50"><?php echo $row['bdate'] ?></td>
-                                            <td><?php echo '$'.$row['amount'] ?></td>
-                                            <td><?php echo '$'.$row['dues'] ?></td>
-                                            <td><?php echo '$'.$row['payable'] ?></td>
+                                            <td><?php echo 'Le '.$row['amount'] ?></td>
+                                            <td><?php echo 'Le '.$row['dues'] ?></td>
+                                            <td><?php echo 'Le '.$row['payable'] ?></td>
                                             <td>
                                                 <?php 
                                                     if($row['pdate']!=NULL) echo $row['pdate'];
